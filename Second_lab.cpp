@@ -138,7 +138,7 @@ int main()
 	int count;
 	int choice;
 	int choice_obj;
-	Some_object	first = Some_object(k,l);
+	Some_object first = Some_object(k,l);
 
 	k = rand() % 1000;
 	l = rand() % 1000;
