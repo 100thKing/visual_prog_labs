@@ -9,10 +9,10 @@ class Some_object
 {
 
 protected:
+
 public:
 	int pos_x;
 	int pos_y;
-
 	double way = 0;
 	Some_object(int x, int y)
 	{
@@ -26,7 +26,7 @@ public:
 		cout << "\t" << "x: " << pos_x << endl;
 		cout << "\t" << "y: " << pos_y << endl;
 		cout << "\t" << "way: " << way << endl;
-	//	cout << "\t" << "diff: " << sqrt(x * x + y * y) << endl;
+		//	cout << "\t" << "diff: " << sqrt(x * x + y * y) << endl;
 		cout << "\t" << endl << endl;
 	}
 	void random_walk()
@@ -41,8 +41,8 @@ public:
 		}
 		way += (sqrt(diff_x * diff_x + diff_y * diff_y));
 		output(diff_x, diff_y);
-		
-		
+
+
 	}
 
 	void Random_Waypoint()
@@ -62,6 +62,14 @@ public:
 		}
 
 		int speed_y = diff_y / step_count;
+	}
+
+	void Find_Distance(int x, int y)
+	{
+		cout << "Location of the object: " << pos_x << " " << pos_y << endl;
+		cout << "Location of the dot: " << x << " " << y << endl;
+		double distance = sqrt((pos_x - x) * (pos_x - x) + (pos_y - y) * (pos_y - y));
+		cout << "Distance between: " << distance << endl;
 	}
 
 };
@@ -88,6 +96,7 @@ void menu()
 	cout << "4. Markov Chains" << endl;
 	cout << "5. Get distance between 2 object" << endl;
 	cout << "6. Show placement of objects" << endl;
+	cout << "7. Find distance from any dot" << endl;
 	cout << "0. Exit" << endl << endl;
 }
 
@@ -121,6 +130,12 @@ void functions(Some_object x, int choice, Some_object first, Some_object second)
 		second.output(second.pos_x, second.pos_y);
 		cout << endl;
 		break;
+	case 7:
+		cout << "Input dot: ";
+		int dot[2];
+		cin >> dot[0] >> dot[1];
+		x.Find_Distance(dot[0], dot[1]);
+		break;
 	case 0:
 		break;
 	default:
@@ -138,7 +153,7 @@ int main()
 	int count;
 	int choice;
 	int choice_obj;
-	Some_object first = Some_object(k,l);
+	Some_object first = Some_object(k, l);
 
 	k = rand() % 1000;
 	l = rand() % 1000;
